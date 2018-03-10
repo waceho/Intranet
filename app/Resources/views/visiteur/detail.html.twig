@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Visiteur:detail{% endblock %}
+
+{% block body %}
+    <a class="btn btn-default" href="/Visiteur">Retour</a>
+    <hr>
+    <h2 class="page-header">{{ Visiteur.getName() }}</h2>
+    
+    <ul class="list-group">
+        <li class="list-group-item">Category: {{ Visiteur.getCategory() }}</li>
+        <li class="list-group-item">Priority: {{ Visiteur.getPriority() }}</li>
+        <li class="list-group-item">Due: {{ Visiteur.getDueDate() | date('F j, Y, g:i a') }}</li>
+    </ul>
+        <p>
+            {{ Visiteur.getDescription() }}
+        </p>
+{% endblock %}

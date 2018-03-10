@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Visiteur:List{% endblock %}
+
+{% block body %}
+    <h2 class="page-header">Visiteur: Liste</h2>
+
+    <table class="table">
+        <thead> 
+            <tr> 
+                <th>#</th> 
+                <th>Visiteur</th> 
+                <th>Date d'ajout</th>
+                <th></th> 
+            </tr> 
+        </thead> 
+        <tbody> 
+            {% for Visiteur in Visiteurs %}
+            <tr> 
+                <th scope="row">{{ Visiteur.id }}</th> 
+                <td>{{ Visiteur.name }}</td> 
+                <td>{{ Visiteur.dueDate|date('F j, Y, g:i a') }}</td> 
+                <td>
+                    <a href="/Visiteur/details/{{ Visiteur.id }}" class="btn btn-success">Afficher</a>
+                    <a href="/Visiteur/edit/{{ Visiteur.id }}" class="btn btn-default">modifier</a>
+                    <a href="/Visiteur/delete/{{ Visiteur.id }}" class="btn btn-danger">Supprimer</a>
+                </td> 
+            </tr> 
+            {% endfor %}
+        </tbody> 
+    </table>
+{% endblock %}
